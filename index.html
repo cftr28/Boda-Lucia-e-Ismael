@@ -251,13 +251,13 @@
             justify-content: center;
         }
 
-        .tarjeta-blanca .lema { font-size: 0.55rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px; color: #a69683; }
-        .tarjeta-blanca .nombre-tarjeta { font-family: 'Bodoni Moda', serif; font-size: clamp(1.8rem, 8vw, 3rem); margin: 5px 0; color: #a69683; text-transform: none; font-weight: 400; line-height: 1.1;}
-        .tarjeta-blanca .honor { font-size: 0.5rem; margin: 8px 0; text-transform: uppercase; letter-spacing: 1.5px; color: #a69683; line-height: 1.4; }
+        .tarjeta-blanca .lema { font-size: 0.8rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px; color: #2b1d0d; }
+        .tarjeta-blanca .nombre-tarjeta { font-family: 'Bodoni Moda', serif; font-size: clamp(1.8rem, 8vw, 3rem); margin: 5px 0; color: #2b1d0d; text-transform: none; font-weight: 400; line-height: 1.1;}
+        .tarjeta-blanca .honor { font-size: 0.8rem; margin: 8px 0; text-transform: uppercase; letter-spacing: 1.5px; color: #2b1d0d; line-height: 1.4; }
         .fecha-wrap { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0; }
-        .num-grande { font-family: 'Tenor Sans', sans-serif; font-size: clamp(2.5rem, 10vw, 3.5rem); color: #a69683; line-height: 1; }
-        .mes-dia { font-size: 0.65rem; letter-spacing: 1.5px; color: #a69683; border-top: 1px solid #a69683; border-bottom: 1px solid #a69683; padding: 3px 0; min-width: 60px; }
-        .year { letter-spacing: 6px; font-size: 1rem; margin-top: 10px; color: #a69683; }
+        .num-grande { font-family: 'Tenor Sans', sans-serif; font-size: clamp(2.5rem, 10vw, 3.5rem); color: #2b1d0d; line-height: 1; }
+        .mes-dia { font-size: 0.65rem; letter-spacing: 1.5px; color: #2b1d0d; border-top: 1px solid #a69683; border-bottom: 1px solid #a69683; padding: 3px 0; min-width: 60px; }
+        .year { letter-spacing: 6px; font-size: 1rem; margin-top: 10px; color: #2b1d0d; }
 
         /* --- RESTO DE SECCIONES --- */
         .seccion-eventos-texturizada {
@@ -546,46 +546,62 @@
     .num-grande {
         font-size: 2rem;
     }
-    /* --- SECCIÓN GALERÍA --- */
-        .seccion-galeria {
-            padding: 60px 15px;
-            text-align: center;
-            background-color: #fdfaf5; /* Color crema suave para resaltar */
-        }
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .foto-item {
-            width: 100%;
-            height: 350px; /* Altura fija para mantener uniformidad */
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        .foto-item:hover {
-            transform: scale(1.02);
-        }
-        .foto-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ajusta la imagen al contenedor sin deformar */
-            display: block;
-        }
+/* --- SECCIÓN GALERÍA DEFINTIVA --- */
+.seccion-galeria {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fdfaf5;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-        @media (max-width: 480px) {
-            .galeria-grid {
-                grid-template-columns: 1fr; /* Una sola columna en móvil */
-                padding: 0 10px;
-            }
-            .foto-item {
-                height: 300px;
-            }
-        }
+.galeria-grid {
+    display: flex; /* Usamos flex para que no se estiren al ancho total */
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las fotos en la pantalla */
+    gap: 20px;
+    max-width: 1000px; /* Límite del área de fotos */
+    margin: 0 auto;
+}
+
+.foto-item {
+    /* AQUÍ ESTÁ EL TRUCO: Tamaño fijo en PC */
+    width: 250px; 
+    height: 250px; 
+    
+    overflow: hidden; /* Esto corta lo que sobra de la foto */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    position: relative;
+    background-color: #ccc;
+}
+
+.foto-item img {
+    /* La imagen debe llenar el cuadro de 250px, ni más ni menos */
+    width: 100% !important;
+    height: 100% !important;
+    
+    /* 'cover' es vital para que no se vea estirada, la recorta al centro */
+    object-fit: cover !important; 
+    display: block;
+}
+
+/* --- AJUSTE PARA MÓVIL (Aquí sí que ocupen más pantalla) --- */
+@media (max-width: 480px) {
+    .galeria-grid {
+        display: block; /* Una foto tras otra */
+        padding: 0 10px;
+    }
+    
+    .foto-item {
+        width: 100%; /* En el cel que use el ancho del teléfono */
+        height: 350px; /* Un poco más altas para que se vean bien */
+        margin-bottom: 20px;
+    }
+}
+
+
+
 }
 
     </style>
@@ -784,20 +800,27 @@
             <button onclick="sugerirCancion()" class="btn-interactivo">SUGERIR CANCIÓN</button>
         </div>
     </div>
-<div class="seccion-galeria">
-        <h2 class="itinerario-titulo" style="margin-bottom: 40px;">Nuestra Historia</h2>
-        <div class="galeria-grid">
-            <div class="foto-item reveal">
-                <img src="foto1.png" alt="Nuestra foto 1">
-            </div>
-            <div class="foto-item reveal">
-                <img src="foto2.png" alt="Nuestra foto 2">
-            </div>
-            <div class="foto-item reveal">
-                <img src="foto3.png" alt="Nuestra foto 3">
-            </div>
+    <div class="seccion-galeria" style="width: 100%; padding: 60px 0; background-color: #fdfaf5; text-align: center;">
+    <h2 class="itinerario-titulo" style="margin-bottom: 40px; font-family: 'Alex Brush', cursive; font-size: 2.2rem; color: #8d7a64;">Nuestra Historia</h2>
+    
+    <div class="galeria-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+        
+        <div class="foto-item reveal" style="width: 280px; height: 280px; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+            <img src="foto1.png" alt="Nuestra foto 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
+
+        <div class="foto-item reveal" style="width: 280px; height: 280px; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+            <img src="foto2.png" alt="Nuestra foto 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+
+        <div class="foto-item reveal" style="width: 280px; height: 280px; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+            <img src="foto3.png" alt="Nuestra foto 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+
     </div>
+</div>
+
+
     <div class="seccion-contador reveal">
     <div class="capsula-tiempo">
         <h3 class="preparate">¡PREPÁRATE!</h3>
