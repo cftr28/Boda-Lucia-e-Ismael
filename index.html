@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Ismael y Lucia </title>
+    <title>Boda Lucia & Ismael</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;400;600&family=Tenor+Sans&family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&display=swap" rel="stylesheet">
 
@@ -26,8 +26,8 @@
 
         .loader-names {
             font-family: 'Bodoni Moda', serif;
-            font-size: 1.8rem;
-            color: #8d7a64;
+            font-size: 2.1rem;
+            color: #0b0a08;
             letter-spacing: 3px;
             text-transform: uppercase;
             animation: pulse 1.5s infinite ease-in-out;
@@ -546,6 +546,46 @@
     .num-grande {
         font-size: 2rem;
     }
+    /* --- SECCIÓN GALERÍA --- */
+        .seccion-galeria {
+            padding: 60px 15px;
+            text-align: center;
+            background-color: #fdfaf5; /* Color crema suave para resaltar */
+        }
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .foto-item {
+            width: 100%;
+            height: 350px; /* Altura fija para mantener uniformidad */
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .foto-item:hover {
+            transform: scale(1.02);
+        }
+        .foto-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen al contenedor sin deformar */
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            .galeria-grid {
+                grid-template-columns: 1fr; /* Una sola columna en móvil */
+                padding: 0 10px;
+            }
+            .foto-item {
+                height: 300px;
+            }
+        }
 }
 
     </style>
@@ -553,7 +593,7 @@
 <body>
 
     <div id="preloader">
-        <div class="loader-names">Ismael & Lucia</div>
+        <div class="loader-names">Lucia & Ismael</div>
         <div class="loader-line"></div>
     </div>
 
@@ -566,18 +606,18 @@
             <div class="play-button"></div>
         </div>
         <p class="cursive">¡Nos casamos!</p>
-        <h1 class="nombres-tit">Ismael y Lucia</h1>
+        <h1 class="nombres-tit">Lucia & Ismael</h1>
     </div>
         
     <div class="escena-invitacion">
         <div class="sobre-container">
-            <div class="iniciales-dd">I L</div>
+            <div class="iniciales-dd">L I</div>
             <img src="sobre.png" class="sobre-img" alt="Sobre">
             <img src="sello.png" class="sello-lacre" alt="Sello">
             <div class="tarjeta-blanca">
                 <p class="lema">HEMOS DECIDIDO DECIR SÍ PARA TODA LA VIDA</p>
-                <h2 class="nombre-tarjeta">Ismael y Lucia</h2>
-                <p class="honor">Tenemos el honor de invitarlos a celebrar nuestra unión el día</p>
+                <h2 class="nombre-tarjeta">Lucia & Ismael</h2>
+                <p class="honor">Tenemos el honor de invitarlos a celebrar nuestro matrimonio el día</p>
                 <div class="fecha-wrap">
                     <span class="mes-dia">SÁBADO</span>
                     <span class="num-grande">22</span>
@@ -604,7 +644,7 @@
                 <p class="lugar-tit">Ciudadela "Las Garzas"</p>
                 <p class="direccion">Guayaquil, Ecuador</p>
                 <p class="hora">19:30 hs</p>
-                <a href="https://maps.app.goo.gl/97b2fgnTSMbuRJ2c9" target="_blank" class="btn-outline">COMO LLEGAR</a>
+                <a href="https://maps.app.goo.gl/VMB6izJbdL8xDzpLA" target="_blank" class="btn-outline">COMO LLEGAR</a>
             </div>
         </div>
     </div>
@@ -721,7 +761,7 @@
 
     <div style="border-top: 1px solid rgba(141, 122, 100, 0.1); padding-top: 15px; margin-top: 10px;">
         <p style="font-size: 0.68rem; line-height: 1.4; color: #8d7a64; font-style: italic; margin: 0;">
-            "Agradecemos su comprensión al considerar nuestra boda como una celebración exclusivamente para adultos."
+            "Hemos planeado una velada con una atmósfera de adultos, por lo que les agradecemos de corazón su comprensión al no incluir niños en esta ocasión."
         </p>
     </div>
 </div>
@@ -744,7 +784,20 @@
             <button onclick="sugerirCancion()" class="btn-interactivo">SUGERIR CANCIÓN</button>
         </div>
     </div>
-
+<div class="seccion-galeria">
+        <h2 class="itinerario-titulo" style="margin-bottom: 40px;">Nuestra Historia</h2>
+        <div class="galeria-grid">
+            <div class="foto-item reveal">
+                <img src="foto1.png" alt="Nuestra foto 1">
+            </div>
+            <div class="foto-item reveal">
+                <img src="foto2.png" alt="Nuestra foto 2">
+            </div>
+            <div class="foto-item reveal">
+                <img src="foto3.png" alt="Nuestra foto 3">
+            </div>
+        </div>
+    </div>
     <div class="seccion-contador reveal">
     <div class="capsula-tiempo">
         <h3 class="preparate">¡PREPÁRATE!</h3>
@@ -759,7 +812,7 @@
 
  <div class="confirmacion-texto">
     <h2>Confirmación de asistencia</h2>
-    <p>Para nosotros es muy importante que confirmes tu asistencia.</p>
+    <p>Para nosotros es muy importante que confirmes tu asistencia, agradecemos de corazón su comprensión al no incluir niños en esta ocasión.</p>
     
     <div id="contenedor-confirmar">
         <button onclick="mostrarFormulario()" class="btn-blanco-outline" id="btn-principal" style="background: transparent; cursor: pointer; width: auto;">Confirmar aquí</button>
@@ -781,7 +834,7 @@
     <div class="seccion-final reveal">
         <div class="divisor-elegante"></div>
         <p class="texto-final">Te esperamos</p>
-        <h2 class="firmas-final">Ismael & Lucia</h2>
+        <h2 class="firmas-final">Lucia & Ismael</h2>
         <p class="agradecimiento">¡Gracias por acompañarnos!</p>
     </div>
 
